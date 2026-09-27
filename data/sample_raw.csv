@@ -1,0 +1,13 @@
+CustomerID,First Name,Last Name,Email,Phone,Age,City,Signup Date,Purchase Amount
+1,  John , Doe,john.doe@email.com,(123) 456-7890,29,New York,2023-01-15,250.50
+2,Jane,SMITH, jane.smith@email.com ,123-456-7891,34,Los Angeles,15/02/2023,175.00
+3,John,Doe,john.doe@email.com,(123) 456-7890,29,New York,2023-01-15,250.50
+4,Bob,brown,bob.brown@,987-654-3210,,Chicago,2023-03-10,
+5,  Alice,Walker,alice.walker@email.com,555-000-1111,41,houston,2023/04/22,320.75
+6,Mike,Jones,mike.jones@email.com,555-222-3333,-5,Miami,2023-05-01,99.99
+7,Sara,Lee,,555-444-5555,27,Boston,2023-06-18,150.00
+8,Sara,lee,sara.lee@email.com,555-444-5555,27,boston,2023-06-18,150.00
+9,Tom,,tom@email.com,555-666-7777,150,Dallas,2023-07-09,89.50
+10,Nina,Patel,nina.patel@email.com, ,38,Seattle,2023-08-25,410.00
+11,George,King,george.king@email.com,555-888-9999,45,Denver,not_a_date,275.25
+12,  Emma , Watson,emma.watson@email.com,555-111-2222,31,Austin,2023-09-14,199.99

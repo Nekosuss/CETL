@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Results{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>ETL Results — {{ source_name }}</h1>
+
+  <div class="log-grid">
+    <div>
+      <h3>Cleansing Log</h3>
+      <ul class="log-list">
+        {% for line in cleanse_log %}<li>{{ line }}</li>{% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h3>Transformation Log</h3>
+      <ul class="log-list">
+        {% for line in transform_log %}<li>{{ line }}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <p class="hint">Full result is stored in the SQLite database — see the <a href="{{ url_for('database') }}">Database</a> page.</p>
+</section>
+
+<section class="card">
+  <h2>1. Extracted (Raw) Data <span class="count">{{ raw_count }} rows</span></h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr>{% for c in raw_columns %}<th>{{ c }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for row in raw_rows %}
+          <tr>{% for v in row %}<td>{{ v }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2>2. Cleaned &amp; Transformed Data <span class="count">{{ clean_count }} rows</span></h2>
+  <div class="table-wrap">
+    <table class="clean-table">
+      <thead><tr>{% for c in clean_columns %}<th>{{ c }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for row in clean_rows %}
+          <tr>{% for v in row %}<td>{{ v }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Database{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>SQLite Database</h1>
+  <p class="hint">File: <code>{{ db_path }}</code></p>
+</section>
+
+{% for name, t in tables.items() %}
+<section class="card">
+  <h2>
+    {{ 'raw_data (before cleaning)' if name == 'raw_data' else 'cleaned_data (after cleaning)' }}
+    <span class="count">{{ t.count }} rows</span>
+  </h2>
+  <div class="table-wrap">
+    <table class="{{ 'clean-table' if name == 'cleaned_data' else '' }}">
+      <thead><tr>{% for c in t.columns %}<th>{{ c }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for row in t.rows %}
+          <tr>{% for v in row %}<td>{{ v }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

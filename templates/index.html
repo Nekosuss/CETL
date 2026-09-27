@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Upload{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>Cleansing, Extraction &amp; Transformation Tool</h1>
+  <p>
+    Upload a raw / messy CSV dataset. The tool will <strong>extract</strong> it,
+    <strong>cleanse</strong> it (trim whitespace, fix types, validate emails
+    and phone numbers, impute missing values, drop duplicates), then
+    <strong>transform</strong> it (derive new columns, standardize schema)
+    and <strong>load</strong> the result into a SQLite database.
+  </p>
+
+  <form method="post" enctype="multipart/form-data" class="upload-form">
+    <label class="file-label">
+      Choose CSV file
+      <input type="file" name="csv_file" accept=".csv">
+    </label>
+
+    <label class="checkbox-label">
+      <input type="checkbox" name="use_sample" checked>
+      Use bundled sample "messy" dataset instead (recommended for a quick demo)
+    </label>
+
+    <button type="submit">Run ETL Pipeline</button>
+  </form>
+
+  <details>
+    <summary>What does the sample dataset contain?</summary>
+    <p>12 customer records with intentional data-quality issues: extra
+      whitespace, inconsistent name casing, duplicate customers, invalid
+      emails, malformed phone numbers, out-of-range ages, missing values,
+      and inconsistent date formats — so the before/after cleaning effect
+      is easy to see.</p>
+  </details>
+</section>
+{% endblock %}

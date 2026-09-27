@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+cetl.db
+uploads/*
+!uploads/.gitkeep
